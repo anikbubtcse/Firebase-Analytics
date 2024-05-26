@@ -22,20 +22,40 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.purple,
       ),
       body: Center(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.deepPurpleAccent),
-          onPressed: () {
-            analyticsService.logEvent(name: "Login_Event", parameters: {
-              'Email': 'anikbubtcse@gmail.com',
-              'Password': "123456"
-            });
-          },
-          child: Text("Add Event",
-              style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurpleAccent),
+              onPressed: () {
+                analyticsService.logEvent(name: "Login_Event", parameters: {
+                  'Email': 'anikbubtcse@gmail.com',
+                  'Password': "123456"
+                });
+              },
+              child: Text("Add Event",
+                  style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white)),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurpleAccent),
+              onPressed: () {
+                throw Exception();
+              },
+              child: Text("Check Crashlytics",
+                  style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white)),
+            ),
+          ],
         ),
       ),
     );
